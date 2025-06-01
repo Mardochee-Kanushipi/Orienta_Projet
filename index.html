@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrientaUPC - Guide des Étudiants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        upcBlue: '#003366',
+                        upcGold: '#FFD700',
+                        upcLight: '#F5F7FA',
+                        upcDark: '#1A202C',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+        }
+        .dark .hero-gradient {
+            background: linear-gradient(135deg, #001a33 0%, #003366 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: calc(100% - 24px);
+            width: 2px;
+            background: #e2e8f0;
+        }
+        .dark .timeline-item:not(:last-child)::after {
+            background: #4a5568;
+        }
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Dark Mode Toggle -->
+    <button id="theme-toggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-yellow-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300">
+        <i id="theme-icon" class="fas fa-moon text-xl"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-40 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <img class="h-8 w-auto" src="img/logo.png" alt="OrientaUPC Logo">
+                        <span class="ml-2 text-xl font-bold text-upcBlue dark:text-upcGold">OrientaUPC</span>
+                    </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Accueil</a>
+                    <a href="#about" class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">À propos</a>
+                    <a href="#programs" class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Filières</a>
+                    <a href="#lmd" class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Système LMD</a>
+                    <a href="#academic" class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Plan Académique</a>
+                    <a href="#advice" class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Conseils</a>
+                    <a href="#contact" class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Contact</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Accueil</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">À propos</a>
+                <a href="#programs" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Filières</a>
+                <a href="#lmd" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Système LMD</a>
+                <a href="#academic" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Plan Académique</a>
+                <a href="#advice" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Conseils</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Bienvenue à l'UPC</h1>
+                    <p class="text-xl mb-8 opacity-90">Votre guide complet pour naviguer dans la vie académique à l'Université Protestante au Congo.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#programs" class="bg-white text-upcBlue font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-300 text-center">
+                            Explorer les Filières <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#advice" class="bg-transparent border-2 border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-upcBlue transition-colors duration-300 text-center">
+                            Conseils Étudiants
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-upcGold rounded-full opacity-20"></div>
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-upcGold rounded-full opacity-20"></div>
+                        <div class="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20">
+                            <h3 class="text-xl font-bold mb-4">Ressources Utiles</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <i class="fas fa-calendar-alt text-upcGold mr-3"></i>
+                                    <span>Calendrier académique 2023-2024</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-map-marked-alt text-upcGold mr-3"></i>
+                                    <span>Plan du campus</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-book text-upcGold mr-3"></i>
+                                    <span>Guide de l'étudiant</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-question-circle text-upcGold mr-3"></i>
+                                    <span>FAQ pour nouveaux étudiants</span>
+                                </li>
+                            </ul>
+                            <button class="mt-6 w-full bg-upcGold text-upcBlue font-semibold py-2 px-4 rounded-lg hover:bg-yellow-400 transition-colors duration-300">
+                                Télécharger toutes les ressources
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="bg-gray-50 dark:bg-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="#programs" class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+                    <div class="w-14 h-14 bg-upcBlue/10 dark:bg-upcBlue/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-upcBlue dark:text-upcGold text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Filières</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Découvrez nos programmes académiques</p>
+                </a>
+                <a href="#lmd" class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+                    <div class="w-14 h-14 bg-upcBlue/10 dark:bg-upcBlue/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-layer-group text-upcBlue dark:text-upcGold text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Système LMD</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Comprendre Licence-Master-Doctorat</p>
+                </a>
+                <a href="#academic" class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+                    <div class="w-14 h-14 bg-upcBlue/10 dark:bg-upcBlue/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-calendar-check text-upcBlue dark:text-upcGold text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Plan Académique</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Organisez votre parcours universitaire</p>
+                </a>
+                <a href="#advice" class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+                    <div class="w-14 h-14 bg-upcBlue/10 dark:bg-upcBlue/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-lightbulb text-upcBlue dark:text-upcGold text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Conseils</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Astuces pour réussir vos études</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-upcBlue dark:text-upcGold mb-4">À Propos d'OrientaUPC</h2>
+                <div class="w-24 h-1 bg-upcGold mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Une plateforme créée par des étudiants, pour les étudiants, afin de faciliter l'intégration et la réussite académique à l'UPC.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <img src="https://via.placeholder.com/600x400" alt="Étudiants UPC" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-upcBlue dark:text-upcGold mb-3">Notre Mission</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            OrientaUPC a pour mission d'accompagner les nouveaux étudiants dans leur parcours universitaire en fournissant des informations claires, des ressources utiles et des conseils pratiques pour naviguer dans le système académique de l'UPC.
+                        </p>
+                    </div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-upcBlue dark:text-upcGold mb-3">Notre Vision</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Nous aspirons à créer une communauté étudiante solidaire où chaque membre peut partager son expérience et ses connaissances pour aider les autres à réussir leurs études universitaires.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-upcBlue dark:text-upcGold mb-3">Rejoignez-nous</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            OrientaUPC est un projet collaboratif. Si vous souhaitez contribuer en partageant vos connaissances ou vos expériences, n'hésitez pas à nous contacter.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center px-6 py-3 bg-upcBlue text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                            Contribuer <i class="fas fa-hands-helping ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-upcBlue dark:text-upcGold mb-4">Nos Filières Académiques</h2>
+                <div class="w-24 h-1 bg-upcGold mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Découvrez les différentes filières offertes à l'UPC et trouvez celle qui correspond à vos aspirations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program Card 1 -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                    <div class="h-48 bg-upcBlue flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-2">Informatique</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Formation complète en développement logiciel, réseaux informatiques et systèmes d'information.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-xs font-medium">Licence</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-xs font-medium">Master</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-xs font-medium">Doctorat</span>
+                        </div>
+                        <a href="#" class="text-upcBlue dark:text-upcGold font-medium hover:underline flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program Card 2 -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                    <div class="h-48 bg-upcBlue flex items-center justify-center">
+                        <i class="fas fa-balance-scale text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-2">Droit</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Programme complet couvrant le droit civil, pénal, des affaires et international.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-xs font-medium">Licence</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-xs font-medium">Master</span>
+                        </div>
+                        <a href="#" class="text-upcBlue dark:text-upcGold font-medium hover:underline flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program Card 3 -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                    <div class="h-48 bg-upcBlue flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-2">Gestion</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Formation en management, comptabilité, marketing et entrepreneuriat.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-xs font-medium">Licence</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-xs font-medium">Master</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 rounded-full text-xs font-medium">MBA</span>
+                        </div>
+                        <a href="#" class="text-upcBlue dark:text-upcGold font-medium hover:underline flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-upcBlue hover:bg-blue-700 transition-colors duration-300">
+                    Voir toutes les filières <i class="fas fa-list-ul ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LMD System Section -->
+    <section id="lmd" class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-upcBlue dark:text-upcGold mb-4">Comprendre le Système LMD</h2>
+                <div class="w-24 h-1 bg-upcGold mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Licence - Master - Doctorat : Le système d'enseignement supérieur harmonisé au niveau international.
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- LMD Timeline -->
+                <div class="lg:w-2/3">
+                    <div class="relative">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item relative pl-8 pb-8">
+                            <div class="absolute left-0 w-4 h-4 bg-upcGold rounded-full mt-1"></div>
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-2">Licence (BAC+3)</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-3">
+                                    Premier cycle universitaire de 6 semestres (180 crédits ECTS) permettant d'acquérir les connaissances de base dans un domaine.
+                                </p>
+                                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-1">
+                                    <li>Durée : 3 ans</li>
+                                    <li>Accès : Baccalauréat ou équivalent</li>
+                                    <li>Débouchés : Master ou insertion professionnelle</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item relative pl-8 pb-8">
+                            <div class="absolute left-0 w-4 h-4 bg-upcGold rounded-full mt-1"></div>
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-2">Master (BAC+5)</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-3">
+                                    Deuxième cycle de 4 semestres (120 crédits ECTS) permettant une spécialisation ou une professionnalisation approfondie.
+                                </p>
+                                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-1">
+                                    <li>Durée : 2 ans</li>
+                                    <li>Accès : Licence ou équivalent (180 ECTS)</li>
+                                    <li>Débouchés : Doctorat ou insertion professionnelle</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item relative pl-8">
+                            <div class="absolute left-0 w-4 h-4 bg-upcGold rounded-full mt-1"></div>
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                                <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-2">Doctorat (BAC+8)</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-3">
+                                    Troisième cycle consacré à la recherche originale, aboutissant à la soutenance d'une thèse.
+                                </p>
+                                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-1">
+                                    <li>Durée : 3 ans minimum</li>
+                                    <li>Accès : Master ou équivalent (300 ECTS)</li>
+                                    <li>Débouchés : Carrière académique ou recherche</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ECTS Explanation -->
+                <div class="lg:w-1/3">
+                    <div class="bg-upcBlue text-white p-6 rounded-lg shadow-lg h-full">
+                        <h3 class="text-xl font-bold mb-4">Système de Crédits ECTS</h3>
+                        <p class="mb-4">
+                            Le système européen de transfert et d'accumulation de crédits (ECTS) permet de mesurer et comparer les résultats d'apprentissage.
+                        </p>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">1 crédit ECTS =</h4>
+                                <p>25 à 30 heures de travail étudiant (cours, TD, TP, travail personnel)</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Semestre standard =</h4>
+                                <p>30 crédits ECTS (soit 750-900 heures de travail)</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Avantages :</h4>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Mobilité internationale facilitée</li>
+                                    <li>Parcours personnalisés</li>
+                                    <li>Reconnaissance des acquis</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="mt-6 w-full bg-upcGold text-upcBlue font-semibold py-2 px-4 rounded-lg hover:bg-yellow-400 transition-colors duration-300">
+                            Télécharger le guide ECTS
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Plan Section -->
+    <section id="academic" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-upcBlue dark:text-upcGold mb-4">Plan Académique</h2>
+                <div class="w-24 h-1 bg-upcGold mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Organisez votre parcours universitaire avec notre calendrier académique et les plans d'études par filière.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Academic Calendar -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-upcBlue px-6 py-4">
+                        <h3 class="text-xl font-bold text-white">Calendrier Académique 2023-2024</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcBlue/10 dark:bg-upcBlue/20 flex items-center justify-center text-upcBlue dark:text-upcGold mr-4">
+                                    <i class="fas fa-calendar-day"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 dark:text-white">Rentrée universitaire</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">15 septembre 2023</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcBlue/10 dark:bg-upcBlue/20 flex items-center justify-center text-upcBlue dark:text-upcGold mr-4">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 dark:text-white">Début des cours</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">18 septembre 2023</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcBlue/10 dark:bg-upcBlue/20 flex items-center justify-center text-upcBlue dark:text-upcGold mr-4">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 dark:text-white">Session d'examens - Semestre 1</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">15-30 janvier 2024</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcBlue/10 dark:bg-upcBlue/20 flex items-center justify-center text-upcBlue dark:text-upcGold mr-4">
+                                    <i class="fas fa-sun"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 dark:text-white">Vacances inter-semestres</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">1-14 février 2024</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcBlue/10 dark:bg-upcBlue/20 flex items-center justify-center text-upcBlue dark:text-upcGold mr-4">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 dark:text-white">Fin de l'année académique</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">30 juin 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="mt-6 w-full bg-upcBlue text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                            Télécharger le calendrier complet
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Study Plan -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-upcBlue px-6 py-4">
+                        <h3 class="text-xl font-bold text-white">Plans d'Études par Filière</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-6">
+                            <label for="program-select" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Sélectionnez votre filière</label>
+                            <select id="program-select" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-800">
+                                <option value="">-- Choisissez une filière --</option>
+                                <option value="informatique">Informatique</option>
+                                <option value="droit">Droit</option>
+                                <option value="gestion">Gestion</option>
+                                <option value="theologie">Théologie</option>
+                                <option value="communication">Communication</option>
+                            </select>
+                        </div>
+                        
+                        <div id="program-info" class="hidden">
+                            <h4 class="font-bold text-lg mb-3 text-upcBlue dark:text-upcGold" id="program-name">Informatique</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <h5 class="font-medium">Licence (L1-L3)</h5>
+                                    <ul class="list-disc pl-5 text-sm text-gray-600 dark:text-gray-300">
+                                        <li>Algorithmique et programmation</li>
+                                        <li>Systèmes d'information</li>
+                                        <li>Réseaux informatiques</li>
+                                        <li>Bases de données</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium">Master (M1-M2)</h5>
+                                    <ul class="list-disc pl-5 text-sm text-gray-600 dark:text-gray-300">
+                                        <li>Intelligence artificielle</li>
+                                        <li>Cybersécurité</li>
+                                        <li>Développement web avancé</li>
+                                        <li>Cloud computing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button class="mt-4 w-full bg-upcBlue text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                                Voir le plan détaillé
+                            </button>
+                        </div>
+                        
+                        <div id="no-program-selected" class="text-center py-8">
+                            <i class="fas fa-book-open text-4xl text-gray-400 dark:text-gray-500 mb-4"></i>
+                            <p class="text-gray-500 dark:text-gray-400">Sélectionnez une filière pour voir son plan d'études</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Practical Info -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden">
+                <div class="bg-upcBlue px-6 py-4">
+                    <h3 class="text-xl font-bold text-white">Informations Pratiques</h3>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcGold/20 text-upcGold flex items-center justify-center mr-4">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white mb-1">Hébergement</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">
+                                    Liste des résidences universitaires et conseils pour trouver un logement.
+                                </p>
+                                <a href="#" class="text-sm text-upcBlue dark:text-upcGold hover:underline mt-1 inline-block">En savoir plus</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcGold/20 text-upcGold flex items-center justify-center mr-4">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white mb-1">Transport</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">
+                                    Plans des lignes de bus, tarifs réduits pour étudiants et itinéraires conseillés.
+                                </p>
+                                <a href="#" class="text-sm text-upcBlue dark:text-upcGold hover:underline mt-1 inline-block">En savoir plus</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcGold/20 text-upcGold flex items-center justify-center mr-4">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white mb-1">Bibliothèque</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">
+                                    Horaires, catalogue en ligne, règles de prêt et ressources électroniques.
+                                </p>
+                                <a href="#" class="text-sm text-upcBlue dark:text-upcGold hover:underline mt-1 inline-block">En savoir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advice Section -->
+    <section id="advice" class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-upcBlue dark:text-upcGold mb-4">Conseils pour Réussir</h2>
+                <div class="w-24 h-1 bg-upcGold mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Astuces et stratégies partagées par des étudiants et professeurs pour exceller dans vos études.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Advice Card 1 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-upcBlue to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-clock text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-3">Gestion du Temps</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Apprenez à organiser votre emploi du temps efficacement pour concilier études, loisirs et repos.
+                        </p>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+                                <span>Utilisez un agenda ou des applications de planification</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+                                <span>Priorisez les tâches importantes et urgentes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+                                <span>Évitez la procrastination avec la technique Pomodoro</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Advice Card 2 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-upcBlue to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-book-reader text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-3">Méthodes d'Étude</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Découvrez des techniques d'apprentissage efficaces adaptées à différents types de cours.
+                        </p>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+                                <span>La prise de notes active (méthode Cornell)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+                                <span>Les cartes mentales pour visualiser les concepts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+                                <span>L'étude par intervalles espacés</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Advice Card 3 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-upcBlue to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-3">Préparation aux Examens</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Stratégies pour aborder sereinement les périodes d'examens et maximiser vos résultats.
+                        </p>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+                                <span>Créez un planning de révision réaliste</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+                                <span>Pratiquez avec des annales d'examens</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+                                <span>Gérez le stress avec des techniques de relaxation</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Student Testimonials -->
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                <div class="bg-upcBlue px-6 py-4">
+                    <h3 class="text-xl font-bold text-white">Témoignages d'Étudiants</h3>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Testimonial 1 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <img class="h-16 w-16 rounded-full" src="https://via.placeholder.com/64" alt="Étudiant">
+                            </div>
+                            <div>
+                                <blockquote class="text-gray-600 dark:text-gray-300 mb-4">
+                                    <p>"OrientaUPC m'a beaucoup aidé lors de ma première année. Les conseils sur les méthodes de travail ont révolutionné ma façon d'étudier."</p>
+                                </blockquote>
+                                <div class="text-sm font-medium text-gray-900 dark:text-white">
+                                    <p>Jean K., Licence 2 Informatique</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-4">
+                                <img class="h-16 w-16 rounded-full" src="https://via.placeholder.com/64" alt="Étudiante">
+                            </div>
+                            <div>
+                                <blockquote class="text-gray-600 dark:text-gray-300 mb-4">
+                                    <p>"Grâce au guide des filières, j'ai pu choisir ma spécialisation en Master en toute connaissance de cause. Merci pour cette ressource précieuse!"</p>
+                                </blockquote>
+                                <div class="text-sm font-medium text-gray-900 dark:text-white">
+                                    <p>Sarah M., Master 1 Droit des Affaires</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Testimonials -->
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-black aspect-video rounded-lg overflow-hidden relative">
+                            <img src="https://via.placeholder.com/600x400" alt="Video thumbnail" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <button class="w-16 h-16 bg-upcGold rounded-full flex items-center justify-center text-upcBlue hover:bg-yellow-400 transition-colors duration-300">
+                                    <i class="fas fa-play text-2xl"></i>
+                                </button>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <h4 class="text-white font-medium">Mon parcours en Informatique</h4>
+                                <p class="text-sm text-gray-300">Pascal, Doctorant</p>
+                            </div>
+                        </div>
+                        <div class="bg-black aspect-video rounded-lg overflow-hidden relative">
+                            <img src="https://via.placeholder.com/600x400" alt="Video thumbnail" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <button class="w-16 h-16 bg-upcGold rounded-full flex items-center justify-center text-upcBlue hover:bg-yellow-400 transition-colors duration-300">
+                                    <i class="fas fa-play text-2xl"></i>
+                                </button>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <h4 class="text-white font-medium">Concilier études et travail</h4>
+                                <p class="text-sm text-gray-300">Amina, Licence 3 Gestion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-upcBlue dark:text-upcGold mb-4">Contactez-nous</h2>
+                <div class="w-24 h-1 bg-upcGold mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Vous avez des questions ou souhaitez contribuer au projet? N'hésitez pas à nous contacter.
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nom complet</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Adresse email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Sujet</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700">
+                                <option value="">-- Sélectionnez un sujet --</option>
+                                <option value="question">Question générale</option>
+                                <option value="contribution">Proposition de contribution</option>
+                                <option value="feedback">Retour d'expérience</option>
+                                <option value="bug">Signaler un problème</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700"></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-upcBlue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-upcBlue transition-colors duration-300">
+                                Envoyer le message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 h-full">
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-6">Autres moyens de contact</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcBlue/10 dark:bg-upcBlue/20 flex items-center justify-center text-upcBlue dark:text-upcGold mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 dark:text-white mb-1">Email</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">contact@orientaupc.cd</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcBlue/10 dark:bg-upcBlue/20 flex items-center justify-center text-upcBlue dark:text-upcGold mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 dark:text-white mb-1">Adresse</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Université Protestante au Congo<br>BP 4745 Kinshasa-Gombe, RDC</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcBlue/10 dark:bg-upcBlue/20 flex items-center justify-center text-upcBlue dark:text-upcGold mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 dark:text-white mb-1">Téléphone</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">+243 81 234 5678</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-upcBlue/10 dark:bg-upcBlue/20 flex items-center justify-center text-upcBlue dark:text-upcGold mr-4">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900 dark:text-white mb-1">Réseaux sociaux</h4>
+                                    <div class="flex space-x-4 mt-2">
+                                        <a href="#" class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="w-8 h-8 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full flex items-center justify-center hover:from-purple-700 hover:to-pink-700 transition-colors duration-300">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700 transition-colors duration-300">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-600">
+                            <h4 class="font-medium text-gray-900 dark:text-white mb-3">FAQ - Questions fréquentes</h4>
+                            <div class="space-y-3">
+                                <a href="#" class="block text-upcBlue dark:text-upcGold hover:underline">Comment puis-je contribuer au projet?</a>
+                                <a href="#" class="block text-upcBlue dark:text-upcGold hover:underline">Où trouver les plans d'études détaillés?</a>
+                                <a href="#" class="block text-upcBlue dark:text-upcGold hover:underline">Comment signaler une information obsolète?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-upcBlue text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Restez informé</h3>
+                    <p class="opacity-90">Abonnez-vous à notre newsletter pour recevoir les dernières mises à jour et ressources.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <form class="flex flex-col sm:flex-row gap-3">
+                        <input type="email" placeholder="Votre adresse email" class="flex-grow px-4 py-3 rounded-lg focus:outline-none text-gray-900">
+                        <button type="submit" class="px-6 py-3 bg-upcGold text-upcBlue font-semibold rounded-lg hover:bg-yellow-400 transition-colors duration-300 whitespace-nowrap">
+                            S'abonner <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">OrientaUPC</h4>
+                    <p class="mb-4">Plateforme d'orientation et d'accompagnement des étudiants de l'Université Protestante au Congo.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-white transition-colors duration-300">Accueil</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors duration-300">À propos</a></li>
+                        <li><a href="#programs" class="hover:text-white transition-colors duration-300">Filières</a></li>
+                        <li><a href="#lmd" class="hover:text-white transition-colors duration-300">Système LMD</a></li>
+                        <li><a href="#academic" class="hover:text-white transition-colors duration-300">Plan académique</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Ressources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Calendrier académique</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Guide de l'étudiant</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Bibliothèque en ligne</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Glossaire</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+                    <address class="not-italic">
+                        <p class="mb-2">Université Protestante au Congo</p>
+                        <p class="mb-2">BP 4745 Kinshasa-Gombe, RDC</p>
+                        <p class="mb-2">Email: contact@orientaupc.cd</p>
+                        <p>Tél: +243 81 234 5678</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400 mb-4 md:mb-0">© 2023 OrientaUPC. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Mentions légales</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Politique de confidentialité</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Button (Future Feature) -->
+    <div class="fixed bottom-6 left-6 z-50">
+        <button id="chatbot-button" class="floating-btn w-16 h-16 rounded-full bg-upcGold text-upcBlue shadow-lg flex items-center justify-center hover:bg-yellow-400 transition-colors duration-300">
+            <i class="fas fa-robot text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- Chatbot Modal (Future Feature) -->
+    <div id="chatbot-modal" class="hidden fixed bottom-24 left-6 z-50 w-80 bg-white dark:bg-gray-800 rounded-t-lg rounded-r-lg shadow-xl border border-gray-200 dark:border-gray-700">
+        <div class="bg-upcBlue text-white px-4 py-3 rounded-t-lg flex justify-between items-center">
+            <h3 class="font-semibold">Assistant Virtuel OrientaUPC</h3>
+            <button id="close-chatbot" class="text-white hover:text-gray-200">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="p-4 h-64 overflow-y-auto">
+            <div class="chat-message mb-4">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 h-8 w-8 rounded-full bg-upcBlue/10 dark:bg-upcBlue/20 text-upcBlue dark:text-upcGold flex items-center justify-center mr-3">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg rounded-tl-none">
+                        <p class="text-sm">Bonjour! Je suis l'assistant virtuel d'OrientaUPC. Comment puis-je vous aider aujourd'hui?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+            <div class="flex">
+                <input type="text" placeholder="Posez votre question..." class="flex-grow px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-l-md focus:outline-none focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700">
+                <button class="px-4 bg-upcBlue text-white rounded-r-md hover:bg-blue-700 transition-colors duration-300">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Program select
+        const programSelect = document.getElementById('program-select');
+        const programInfo = document.getElementById('program-info');
+        const noProgramSelected = document.getElementById('no-program-selected');
+        
+        programSelect.addEventListener('change', function() {
+            if (this.value) {
+                programInfo.classList.remove('hidden');
+                noProgramSelected.classList.add('hidden');
+                document.getElementById('program-name').textContent = this.options[this.selectedIndex].text;
+            } else {
+                programInfo.classList.add('hidden');
+                noProgramSelected.classList.remove('hidden');
+            }
+        });
+        
+        // Chatbot toggle (future feature)
+        const chatbotButton = document.getElementById('chatbot-button');
+        const chatbotModal = document.getElementById('chatbot-modal');
+        const closeChatbot = document.getElementById('close-chatbot');
+        
+        chatbotButton.addEventListener('click', function() {
+            chatbotModal.classList.toggle('hidden');
+        });
+        
+        closeChatbot.addEventListener('click', function() {
+            chatbotModal.classList.add('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
