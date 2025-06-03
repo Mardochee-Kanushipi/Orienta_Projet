@@ -1,0 +1,30 @@
+.hero-gradient {
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+        }
+        .dark .hero-gradient {
+            background: linear-gradient(135deg, #001a33 0%, #003366 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: calc(100% - 24px);
+            width: 2px;
+            background: #e2e8f0;
+        }
+        .dark .timeline-item:not(:last-child)::after {
+            background: #4a5568;
+        }
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
