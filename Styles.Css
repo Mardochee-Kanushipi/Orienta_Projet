@@ -11,6 +11,8 @@
 
 
 
+
+
 .hero-gradient {
             background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
         }
@@ -103,8 +105,8 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   color: white;
   border-radius: 50%;
   text-decoration: none;
@@ -148,6 +150,47 @@ footer {
 
 .btn-pinterest  { background-color: #E60023; }
 .btn-pinterest:hover  { background-color: #b8001c; }
+
+.btn-threads {
+  background-color: #000000; /* Fond noir */
+  color: #ffffff;
+}
+.btn-threads:hover {
+  background-color: #1a1a1a;
+}
+
+
+.btn-linktree {
+  background-color: #00ff11; /* Couleur officielle Linktree */
+  border-radius: 50%; /* arrondi comme les autres */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+
+}
+
+.btn-linktree img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1); 
+}
+
+.contact-link {
+  color: inherit;
+  /* text-decoration: underline; */
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-link:hover {
+  color: #1d4ed8; /* bleu doux */
+  transform: scale(1.05);
+}
+
+.contact-link:active {
+  transform: scale(0.95);
+}
 
 
 
