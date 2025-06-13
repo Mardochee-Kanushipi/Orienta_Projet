@@ -16,13 +16,16 @@
 .hero-gradient {
             background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
         }
+
         .dark .hero-gradient {
             background: linear-gradient(135deg, #001a33 0%, #003366 100%);
         }
+
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+
         .timeline-item:not(:last-child)::after {
             content: '';
             position: absolute;
@@ -32,28 +35,31 @@
             width: 2px;
             background: #e2e8f0;
         }
+
         .dark .timeline-item:not(:last-child)::after {
             background: #4a5568;
         }
+
         .floating-btn {
             animation: float 3s ease-in-out infinite;
         }
+
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
 
-        ul a {
-    cursor: pointer;
-    position: relative;
-    text-decoration: none;
-    color: #ffffff; /* joli bleu */
-    transition: color 0.3s ease;
+  ul a {
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+        color: #ffffff; 
+        transition: color 0.3s ease;
   }
 
   ul a:hover {
-    color: #cbba26; /* gold foncé au survol */
+    color: #cbba26; 
   }
 
   ul a::after {
@@ -101,6 +107,7 @@ footer {
 /* =========================
    🌐 BOUTONS RÉSEAUX SOCIAUX
    ========================= */
+
 .btn-social {
   display: inline-flex;
   align-items: center;
@@ -118,7 +125,8 @@ footer {
 }
 
 /* Réseaux spécifiques */
-.btn-x-twitter   { background-color: #000000; }  /* X/Twitter */
+
+.btn-x-twitter   { background-color: #000000; }  
 .btn-x-twitter:hover   { background-color: #16181c; }
 
 .btn-instagram   { background-color: #E4405F; }
@@ -151,18 +159,20 @@ footer {
 .btn-pinterest  { background-color: #E60023; }
 .btn-pinterest:hover  { background-color: #b8001c; }
 
+
 .btn-threads {
-  background-color: #000000; /* Fond noir */
+  background-color: #000000; 
   color: #ffffff;
 }
+
 .btn-threads:hover {
   background-color: #1a1a1a;
 }
 
 
 .btn-linktree {
-  background-color: #00ff11; /* Couleur officielle Linktree */
-  border-radius: 50%; /* arrondi comme les autres */
+  background-color: #00ff11; 
+  border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -179,7 +189,6 @@ footer {
 
 .contact-link {
   color: inherit;
-  /* text-decoration: underline; */
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
