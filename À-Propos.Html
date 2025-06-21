@@ -1,1 +1,240 @@
+<!DOCTYPE html>
 
+<html lang="fr" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>À Propos</title>
+    <link rel="icon" href="./Img/orienta.png">
+
+    <link rel="stylesheet" href="Styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Scripts.Js" defer></script>
+
+</head>
+
+
+
+<body class="font-poppins bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Mode Sombre  -->
+    <button id="theme-toggle"
+
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-yellow-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300">
+
+        <i id="theme-icon" class="fas fa-moon text-xl"></i>
+
+    </button>
+
+    <!-- Navigation -->
+    <nav
+    
+        class="sticky top-0 z-40 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-sm">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex justify-between h-16">
+
+                <div class="flex items-center">
+
+                    <a href="#" class="flex-shrink-0 flex items-center">
+
+                        <img class="h-8 w-auto" src="img/logo.png" alt="OrientaUPC Logo">
+
+                        <span class="ml-2 text-xl font-bold text-upcBlue dark:text-upcGold">OrientaUPC</span>
+
+                    </a>
+
+                </div>
+
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+
+                    <a target="_blank" href="Acceuil.Html"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Accueil</a>
+
+                    <a target="_blank" href="Filières.Html"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Filières</a>
+
+                    <a target="_blank" href="Système-LMD.Html"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Système
+                        LMD</a>
+
+                    <a href="https://maps.app.goo.gl/GUVCT4xDAK7wCHfG6" target="_blank"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Explorer le campus</a>
+
+                    <a target="_blank" href="Conseils.Html "
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Conseils</a>
+
+                    <a target="_blank" href="à-propos.Html"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">À
+                        propos</a>
+
+                    <a target="_blank" href="Contact.html"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Contact</a>
+                </div>
+
+                <div class="-mr-2 flex items-center md:hidden">
+
+                    <button id="mobile-menu-button"
+
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+
+                        <span class="sr-only">Open main menu</span>
+
+                        <i class="fas fa-bars text-xl"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- menu -->
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+
+                <a target="_blank" href="Acceuil.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Accueil</a>
+
+                <a target="_blank" href="Filières.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Filières</a>
+
+                <a target="_blank" href="Système-LMD.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Système
+                    LMD</a>
+
+                <a target="_blank" href="Explorer-Le-Campus.html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Explorer le campus</a>
+
+                <a target="_blank" href="Conseils.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Conseils</a>
+
+                <a target="_blank" href="à-propos.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">À
+                    propos</a>
+
+                <a target="_blank" href="Contact.html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Contact</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+
+   
+    <section id="about" class="py-16 bg-white dark:bg-gray-900">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-12">
+
+                <h2 class="text-3xl font-bold text-upcBlue dark:text-upcGold mb-4">À Propos d'OrientaUPC</h2>
+
+                <div class="w-24 h-1 bg-upcGold mx-auto mb-6"></div>
+
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+
+                    Une plateforme créée par l'étudiant <strong>Mardochée Kanushipi</strong>, pour les Nouveaux
+                    étudiants de l'Université Protestante au Congo, afin de faciliter l'intégration et la réussite
+                    académique à l'UPC.
+                </p>
+
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+
+                <div class="md:w-1/2">
+
+                    <img src="./Img/IMG_2286~2.jpg" alt="Étudiants UPC" class="rounded-lg shadow-lg w-full">
+
+                </div>
+
+                <div class="md:w-1/2">
+
+                    <div class="mb-8">
+
+                        <h3 class="text-xl font-semibold text-upcBlue dark:text-upcGold mb-3">Notre Mission</h3>
+
+                        <p class="text-gray-600 dark:text-gray-300">
+
+                            OrientaUPC a pour mission d'accompagner les nouveaux étudiants dans leur parcours
+                            universitaire en fournissant des informations claires, des ressources utiles et des conseils
+                            pratiques pour naviguer dans le système académique de l'UPC.
+
+                        </p>
+
+                    </div>
+
+                    <div class="mb-8">
+
+                        <h3 class="text-xl font-semibold text-upcBlue dark:text-upcGold mb-3">Notre Vision</h3>
+
+                        <p class="text-gray-600 dark:text-gray-300">
+
+                            Nous aspirons à créer une communauté étudiante solidaire où chaque membre peut partager son
+                            expérience et ses connaissances pour aider les autres à réussir leurs études universitaires.
+                            
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-xl font-semibold text-upcBlue dark:text-upcGold mb-3">Rejoignez-nous</h3>
+
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            OrientaUPC est un projet collaboratif. Si vous souhaitez contribuer en partageant vos
+                            connaissances ou vos expériences, n'hésitez pas à nous contacter.
+                        </p>
+
+                        <a target="_blank" href="Contact.html"
+
+                            class="inline-flex items-center px-6 py-3 bg-upcBlue text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300">
+
+                            Contribuer <i class="fas fa-hands-helping ml-2"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2025 OrientaUPC. Tous droits réservés.</p>
+
+    </footer>
+
+   
+</body>
+
+</html>
