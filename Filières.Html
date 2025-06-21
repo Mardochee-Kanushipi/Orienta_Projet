@@ -1,1 +1,284 @@
+<!DOCTYPE html>
 
+<html lang="fr" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Filières</title>
+    <link rel="icon" href="./Img/orienta.png">
+
+    <link rel="stylesheet" href="Styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Scripts.Js" defer></script>
+
+</head>
+
+
+
+<body class="font-poppins bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Mode Sombre  -->
+    <button id="theme-toggle"
+
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-yellow-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300">
+
+        <i id="theme-icon" class="fas fa-moon text-xl"></i>
+
+    </button>
+
+    <!-- Navigation -->
+    <nav
+        class="sticky top-0 z-40 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-sm">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex justify-between h-16">
+
+                <div class="flex items-center">
+
+                    <a href="#" class="flex-shrink-0 flex items-center">
+
+                        <img class="h-8 w-auto" src="img/logo.png" alt="OrientaUPC Logo">
+
+                        <span class="ml-2 text-xl font-bold text-upcBlue dark:text-upcGold">OrientaUPC</span>
+
+                    </a>
+
+                </div>
+
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+
+                    <a target="_blank" href="Acceuil.Html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Accueil</a>
+
+                    <a target="_blank" href="Filières.Html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Filières</a>
+
+                    <a target="_blank" href="Système-LMD.Html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Système
+                        LMD</a>
+
+                    <a href="https://maps.app.goo.gl/GUVCT4xDAK7wCHfG6" target="_blank"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Explorer le campus</a>
+
+                    <a target="_blank" href="Conseils.Html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Conseils</a>
+
+                    <a target="_blank" href="à-propos.Html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">À
+                        propos</a>
+
+                    <a target="_blank" href="Contact.html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Contact</a>
+                </div>
+
+                <div class="-mr-2 flex items-center md:hidden">
+
+                    <button id="mobile-menu-button"
+
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+
+                        <span class="sr-only">Open main menu</span>
+
+                        <i class="fas fa-bars text-xl"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- menu -->
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+
+                <a target="_blank" href="Acceuil.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Accueil</a>
+
+                <a target="_blank" href="Filières.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Filières</a>
+
+                <a target="_blank" href="Système-LMD.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Système
+                    LMD</a>
+
+                <a target="_blank" href="Explorer-Le-Campus.html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Explorer le Campus</a>
+
+                <a target="_blank" href="Conseils.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Conseils</a>
+
+                <a target="_blank" href="à-propos.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">À
+                    propos</a>
+
+                <a target="_blank" href="Contact.html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Contact</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    
+
+   
+    <section id="programs" class="py-16 bg-gray-50 dark:bg-gray-800">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-12">
+
+                <h2 class="text-3xl font-bold text-upcBlue dark:text-upcGold mb-4">Nos Filières Académiques</h2>
+
+                <div class="w-24 h-1 bg-upcGold mx-auto mb-6"></div>
+
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Découvrez les différentes filières offertes à l'UPC et trouvez celle qui correspond à vos
+                    aspirations.
+                </p>
+
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+               
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+
+                    <div class="h-48 bg-upcBlue flex items-center justify-center">
+
+                        <i class="fas fa-laptop-code text-white text-6xl"></i>
+
+                    </div>
+
+                    <div class="p-6">
+
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-2">Faculté des Sciences
+                            Informatiques (FASI)</h3>
+
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Formation complète en développement logiciel, réseaux informatiques et systèmes
+                            d'information.
+                        </p>
+
+
+                        <a href="https://upc.ac.cd/facultes/" target="_blank"
+
+                            class="text-upcBlue dark:text-upcGold font-medium hover:underline flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+              
+                <div
+
+                    class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+
+                    <div class="h-48 bg-upcBlue flex items-center justify-center">
+
+                        <i class="fas fa-balance-scale text-white text-6xl"></i>
+
+                    </div>
+
+                    <div class="p-6">
+
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-2">Faculté de Droit</h3>
+
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Programme complet couvrant le droit civil, pénal, des affaires et international.
+                        </p>
+
+                        <a href="https://upc.ac.cd/facultes/la-faculte-de-droit/" target="_blank"
+
+                            class="text-upcBlue dark:text-upcGold font-medium hover:underline flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+             
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+
+                    <div class="h-48 bg-upcBlue flex items-center justify-center">
+
+                        <i class="fas fa-chart-line text-white text-6xl"></i>
+
+                    </div>
+
+                    <div class="p-6">
+
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-2">Faculté d’Administration des
+                            Affaires et Sciences Économiques (FASE)</h3>
+
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Formation en management, comptabilité, marketing et entrepreneuriat.
+                        </p>
+
+
+                        <a href="https://upc.ac.cd/facultes/la-faculte-dadministration-des-affaires-et-sciences-economiques-fase/"
+                            target="_blank"
+
+                            class="text-upcBlue dark:text-upcGold font-medium hover:underline flex items-center">
+
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="text-center mt-12">
+
+                <a href="https://upc.ac.cd/facultes/" target="_blank"
+
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-upcBlue hover:bg-blue-700 transition-colors duration-300">
+
+                    Voir toutes les filières <i class="fas fa-list-ul ml-2"></i>
+                    
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+  
+    
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2025 OrientaUPC. Tous droits réservés.</p>
+
+    </footer>
+
+   
+</body>
+
+</html>
