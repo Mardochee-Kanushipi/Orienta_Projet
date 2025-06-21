@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="fr" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OrientaUPC</title>
+    <link rel="icon" href="./Img/orienta.png">
+
+    <link rel="stylesheet" href="Styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Scripts.Js" defer></script>
+
+</head>
+
+
+
+<body class="font-poppins bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Mode Sombre  -->
+    <button id="theme-toggle"
+
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-yellow-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300">
+
+        <i id="theme-icon" class="fas fa-moon text-xl"></i>
+
+    </button>
+
+    <!-- Navigation -->
+    <nav
+        class="sticky top-0 z-40 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-sm">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex justify-between h-16">
+
+                <div class="flex items-center">
+
+                    <a href="#" class="flex-shrink-0 flex items-center">
+
+                        <img class="h-8 w-auto" src="img/logo.png" alt="OrientaUPC Logo">
+
+                        <span class="ml-2 text-xl font-bold text-upcBlue dark:text-upcGold">OrientaUPC</span>
+
+                    </a>
+
+                </div>
+
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+
+                    <a target="_blank" href="Acceuil.Html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Accueil</a>
+
+                    <a target="_blank" href = "Filières.Html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Filières</a>
+
+                    <a target="_blank" href="Système-LMD.Html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Système
+                        LMD</a>
+
+                    <a  href="https://maps.app.goo.gl/GUVCT4xDAK7wCHfG6" target="_blank"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Explorer le campus</a>
+
+                    <a href="Conseils.Html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Conseils</a>
+
+                    <a href="à-propos.Html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">À
+                        propos</a>
+
+                    <a target="_blank" href="Contact.html"
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Contact</a>
+                </div>
+
+                <div class="-mr-2 flex items-center md:hidden">
+
+                    <button id="mobile-menu-button"
+
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+
+                        <span class="sr-only">Open main menu</span>
+
+                        <i class="fas fa-bars text-xl"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- menu -->
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+
+                <a target="_blank" href="Acceuil.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Accueil</a>
+
+                <a target="_blank" href="Filières.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Filières</a>
+
+                <a target="_blank" href="Système-LMD.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Système
+                    LMD</a>
+
+                <a target="_blank" href="Explorer-Le-Campus.html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Explorer
+                    le Campus</a>
+
+                <a target="_blank" href="Conseils.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Conseils</a>
+
+                <a target="_blank" href="à-propos.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">À
+                    propos</a>
+
+                <a target="_blank" href="Conseils.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Contact</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    
+    <section id="home" class="hero-gradient text-white py-20 md:py-32">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex flex-col md:flex-row items-center">
+
+                <div class="md:w-1/2 mb-10 md:mb-0">
+
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Bienvenue à l'UPC</h1>
+
+                    <p class="text-xl mb-8 opacity-90">Votre guide complet pour naviguer dans la vie académique à
+                        l'Université Protestante au Congo.</p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+
+                        <a target="_blank" href="Filières.Html"
+
+                            class="bg-white text-upcBlue font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-300 text-center">
+
+                            Explorer les Filières
+
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+
+                        <a href="Conseils.Html"
+
+                            class="bg-transparent border-2 border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-upcBlue transition-colors duration-300 text-center">
+
+                            Conseils Étudiants
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="md:w-1/2 flex justify-center">
+
+                    <div class="relative w-full max-w-md">
+
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-upcGold rounded-full opacity-20"></div>
+
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-upcGold rounded-full opacity-20"></div>
+
+                        <div
+                            class="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20">
+
+                            <h3 class="text-xl font-bold mb-4">Ressources Utiles</h3>
+
+                            <ul class="space-y-3">
+
+                                <li class="flex items-center">
+
+                                    <i class="fas fa-calendar-alt text-upcGold mr-3"></i>
+
+                                    <span><a href="https://upc.ac.cd/upload/calendrier.pdf" target="_blank">Calendrier
+                                            académique 2024-2025</a></span>
+                                </li>
+
+                                <li class="flex items-center">
+
+                                    <i class="fas fa-map-marked-alt text-upcGold mr-3"></i>
+
+                                    <span><a href="https://maps.app.goo.gl/GUVCT4xDAK7wCHfG6" target="_blank">Explorer le campus</a></span>
+                                </li>
+
+                                <li class="flex items-center">
+
+                                    <i class="fas fa-book text-upcGold mr-3"></i>
+
+                                    <span><a href="https://upc.ac.cd/admissions/admission-au-graduat/"
+                                            target="_blank">Guide de l'étudiant</a></span>
+                                </li>
+
+                                <li class="flex items-center">
+
+                                    <i class="fas fa-question-circle text-upcGold mr-3"></i>
+
+                                    <span><a href="https://upc.ac.cd/admissions/" target="_blank">FAQ pour nouveaux
+                                            étudiants</a></span>
+
+                                </li>
+
+                            </ul>
+
+                            <button
+                                class="mt-6 w-full bg-upcGold text-upcBlue font-semibold py-2 px-4 rounded-lg hover:bg-yellow-400 transition-colors duration-300">
+
+                                <a href="./Ressources Utiles.zip" download="Télécharger toutes les ressources"
+                                    target="_blank">Télécharger toutes les ressources</a>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Les Liens -->
+    <section class="bg-gray-50 dark:bg-gray-800 py-12">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+                <a target="_blank" href="Filières.Html"
+
+                    class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+
+                    <div
+                        class="w-14 h-14 bg-upcBlue/10 dark:bg-upcBlue/20 rounded-full flex items-center justify-center mb-4">
+
+                        <i class="fas fa-graduation-cap text-upcBlue dark:text-upcGold text-2xl"></i>
+
+                    </div>
+
+                    <h3 class="font-semibold text-lg mb-2">Filières</h3>
+
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Découvrez nos programmes académiques</p>
+
+                </a>
+
+                <a target="_blank" href="Système-LMD.Html"
+
+                    class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+
+                    <div
+                        class="w-14 h-14 bg-upcBlue/10 dark:bg-upcBlue/20 rounded-full flex items-center justify-center mb-4">
+
+                        <i class="fas fa-layer-group text-upcBlue dark:text-upcGold text-2xl"></i>
+
+                    </div>
+
+                    <h3 class="font-semibold text-lg mb-2">Système LMD</h3>
+
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Comprendre Licence-Master-Doctorat</p>
+
+                </a>
+
+                <a href="https://maps.app.goo.gl/GUVCT4xDAK7wCHfG6" target="_blank"
+
+                    class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+
+                    <div
+
+                        class="w-14 h-14 bg-upcBlue/10 dark:bg-upcBlue/20 rounded-full flex items-center justify-center mb-4">
+
+                        <i class="fas fa-map-marked-alt text-upcBlue dark:text-upcGold text-2xl"></i>
+
+                    </div>
+
+                    <h3 class="font-semibold text-lg mb-2">Explorer le Campus</h3>
+
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Découvrez les différents espaces du campus en 3D.</p>
+
+                </a>
+
+                <a href="Conseils.Html"
+
+                    class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+
+                    <div
+
+                        class="w-14 h-14 bg-upcBlue/10 dark:bg-upcBlue/20 rounded-full flex items-center justify-center mb-4">
+
+                        <i class="fas fa-lightbulb text-upcBlue dark:text-upcGold text-2xl"></i>
+
+                    </div>
+
+                    <h3 class="font-semibold text-lg mb-2">Conseils</h3>
+
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Astuces pour réussir vos études</p>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2025 OrientaUPC. Tous droits réservés.</p>
+
+    </footer>
+
+   
+</body>
+
+</html>
