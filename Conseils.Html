@@ -1,1 +1,333 @@
+<!DOCTYPE html>
 
+<html lang="fr" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Conseils</title>
+    <link rel="icon" href="./Img/orienta.png">
+
+    <link rel="stylesheet" href="Styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Scripts.Js" defer></script>
+
+</head>
+
+
+
+<body class="font-poppins bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Mode Sombre  -->
+    <button id="theme-toggle"
+
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-yellow-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300">
+
+        <i id="theme-icon" class="fas fa-moon text-xl"></i>
+
+    </button>
+
+    <!-- Navigation -->
+    <nav
+        class="sticky top-0 z-40 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-sm">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex justify-between h-16">
+
+                <div class="flex items-center">
+
+                    <a href="#" class="flex-shrink-0 flex items-center">
+
+                        <img class="h-8 w-auto" src="img/logo.png" alt="OrientaUPC Logo">
+
+                        <span class="ml-2 text-xl font-bold text-upcBlue dark:text-upcGold">OrientaUPC</span>
+
+                    </a>
+
+                </div>
+
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+
+                    <a target="_blank" href="Acceuil.Html"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Accueil</a>
+
+                    <a target="_blank" href="Filières.Html"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Filières</a>
+
+                    <a target="_blank" href="Système-LMD.Html"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Système
+                        LMD</a>
+
+                    <a href="https://maps.app.goo.gl/GUVCT4xDAK7wCHfG6" target="_blank"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Explorer le campus</a>
+
+                    <a target="_blank" href="Conseils.Html"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Conseils</a>
+
+                    <a target="_blank" href="à-propos.Html"
+
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">À
+                        propos</a>
+
+                    <a target="_blank" href="Contact.html"
+                    
+                        class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Contact</a>
+                </div>
+
+                <div class="-mr-2 flex items-center md:hidden">
+
+                    <button id="mobile-menu-button"
+
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+
+                        <span class="sr-only">Open main menu</span>
+
+                        <i class="fas fa-bars text-xl"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- menu -->
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+
+                <a target="_blank" href="Acceuil.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Accueil</a>
+
+                <a target="_blank" href="Filières.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Filières</a>
+
+                <a target="_blank" href="Système-LMD.Html "
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Système
+                    LMD</a>
+
+                <a target="_blank" href="Explorer-Le-Campus.html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Explorer
+                    le Campus</a>
+
+                <a target="_blank" href="Conseils.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Conseils</a>
+
+                <a target="_blank" href="à-propos.Html"
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">À
+                    propos</a>
+
+                <a target="_blank" href="Conseils.Html "
+
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Contact</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+   
+    <section id="advice" class="py-16 bg-white dark:bg-gray-900">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-12">
+
+                <h2 class="text-3xl font-bold text-upcBlue dark:text-upcGold mb-4">Conseils pour Réussir</h2>
+
+                <div class="w-24 h-1 bg-upcGold mx-auto mb-6"></div>
+
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+
+                    Astuces et stratégies partagées par des étudiants et professeurs pour exceller dans vos études.
+
+                </p>
+
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+               
+                <div
+                    class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+
+                    <div class="h-48 bg-gradient-to-r from-upcBlue to-blue-600 flex items-center justify-center">
+
+                        <i class="fas fa-clock text-white text-6xl"></i>
+
+                    </div>
+
+                    <div class="p-6">
+
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-3">Gestion du Temps</h3>
+
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Apprenez à organiser votre emploi du temps efficacement pour concilier études, loisirs et
+                            repos.
+                        </p>
+
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+
+                            <li class="flex items-start">
+
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+
+                                <span>Utilisez un agenda ou des applications de planification</span>
+
+                            </li>
+
+                            <li class="flex items-start">
+
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+
+                                <span>Priorisez les tâches importantes et urgentes</span>
+
+                            </li>
+
+                            <li class="flex items-start">
+
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+
+                                <span>Évitez la procrastination avec la technique Pomodoro</span>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                
+                <div
+                    class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+
+                    <div class="h-48 bg-gradient-to-r from-upcBlue to-blue-600 flex items-center justify-center">
+
+                        <i class="fas fa-book-reader text-white text-6xl"></i>
+
+                    </div>
+
+                    <div class="p-6">
+
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-3">Méthodes d'Étude</h3>
+
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Découvrez des techniques d'apprentissage efficaces adaptées à différents types de cours.
+                        </p>
+
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+
+                            <li class="flex items-start">
+
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+
+                                <span>La prise de notes active (méthode Cornell)</span>
+
+                            </li>
+
+                            <li class="flex items-start">
+
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+
+                                <span>Les cartes mentales pour visualiser les concepts</span>
+
+                            </li>
+
+                            <li class="flex items-start">
+
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+
+                                <span>L'étude par intervalles espacés</span>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                
+                <div
+                    class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+
+                    <div class="h-48 bg-gradient-to-r from-upcBlue to-blue-600 flex items-center justify-center">
+
+                        <i class="fas fa-brain text-white text-6xl"></i>
+
+                    </div>
+
+                    <div class="p-6">
+
+                        <h3 class="text-xl font-bold text-upcBlue dark:text-upcGold mb-3">Préparation aux Examens</h3>
+
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Stratégies pour aborder sereinement les périodes d'examens et maximiser vos résultats.
+                        </p>
+
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+
+                            <li class="flex items-start">
+
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+
+                                <span>Créez un planning de révision réaliste</span>
+
+                            </li>
+
+                            <li class="flex items-start">
+
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+
+                                <span>Pratiquez avec des annales d'examens</span>
+
+                            </li>
+
+                            <li class="flex items-start">
+
+                                <i class="fas fa-check-circle text-upcGold mr-2 mt-1"></i>
+
+                                <span>Gérez le stress avec des techniques de relaxation</span>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    </section>
+
+  
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2025 OrientaUPC. Tous droits réservés.</p>
+
+    </footer>
+
+   
+</body>
+
+</html>
