@@ -45,5 +45,6 @@
         "système",
         "Tous",
         "utiles"
-    ]
+    ],
+    "liveServer.settings.port": 5502
 }
