@@ -23,6 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $mail = new PHPMailer(true);
     try {
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
         // Paramètres SMTP Gmail
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
@@ -36,6 +39,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->addAddress($admin_email);
         $mail->addReplyTo($email, $name);
 
+        // Désactiver la vérification SSL (pour localhost uniquement)
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            ]
+        ];
+
         $mail->isHTML(true);
         $mail->Subject = 'Nouveau message de contact depuis OrientaUPC';
         $mail->Body = '<h3>Nouveau message reçu :</h3>' .
@@ -48,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
         
     } catch (Exception $e) {
+        echo '<pre>Erreur PHPMailer : ' . $mail->ErrorInfo . '</pre>';
         echo '<script>alert("Erreur lors de l\'envoi du message : ' . addslashes($mail->ErrorInfo) . '"); window.history.back();</script>';
         exit();
     }

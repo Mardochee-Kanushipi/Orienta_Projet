@@ -71,7 +71,7 @@
                         class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">À
                         propos</a>
 
-                    <a target="_blank" href="Contact.html"
+                    <a target="_blank" href="Contact.Php"
                         class="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-upcBlue dark:hover:text-upcGold transition-colors">Contact</a>
                 </div>
 
@@ -125,7 +125,7 @@
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">À
                     propos</a>
 
-                <a target="_blank" href="Contact.html"
+                <a target="_blank" href="Contact.Php"
 
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-upcBlue dark:hover:text-upcGold hover:bg-gray-50 dark:hover:bg-gray-700">Contact</a>
             </div>
