@@ -27,5 +27,7 @@ Le site propose des ressources utiles, des conseils, des informations sur les fi
 ### 1. Cloner ce dépôt
 
 ```bash
-git clone https://github.com/criagi-upc/projet-final-etudiant.git
-cd projet-final-etudiant
+git clone https://github.com/criagi-upc/projet-final-Mardochee-Kanushipi.git
+cd projet-final-Mardochee-Kanushipi
+
+
