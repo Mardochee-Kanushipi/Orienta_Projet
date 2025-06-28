@@ -1,0 +1,22 @@
+
+# Node modules (si jamais un jour tu installes un outil JS)
+node_modules/
+
+# Systèmes d’exploitation
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# Fichiers temporaires
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Environnements
+.env
+.vscode/
+.idea/
+
+# fichiers système inutiles
+*.zip
