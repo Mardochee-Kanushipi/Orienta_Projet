@@ -157,7 +157,7 @@
 
                 <div class="lg:w-1/2">
 
-                    <form class="space-y-6"action="traitement.php" method="POST">
+                    <form class="space-y-6" action="traitement.php" method="POST" onsubmit="return validateForm();">
 
 
                         <div>
@@ -168,7 +168,8 @@
 
                             <input type="text" id="name" name="name"
 
-                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700">
+                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700"
+                                placeholder="Nom complet">
                         </div>
 
                         <div>
@@ -180,7 +181,8 @@
 
                             <input type="email" id="email" name="email"
 
-                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700">
+                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700"
+                                placeholder="Adresse email">
                         </div>
 
                        
@@ -192,7 +194,8 @@
 
                             <textarea id="message" name="message" rows="5"
 
-                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700"></textarea>
+                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-upcBlue focus:border-upcBlue bg-white dark:bg-gray-700"
+                                placeholder="Votre message"></textarea>
                         </div>
 
                         <div>
@@ -423,7 +426,41 @@
 
     </footer>
 
-   
+  <script>
+      
+function validateForm() {
+    var valid = true;
+    var name = document.getElementById('name');
+    var email = document.getElementById('email');
+    var message = document.getElementById('message');
+
+    // Réinitialiser les styles et placeholders
+    name.classList.remove('border-red-500');
+    email.classList.remove('border-red-500');
+    message.classList.remove('border-red-500');
+    name.placeholder = 'Nom complet';
+    email.placeholder = 'Adresse email';
+    message.placeholder = 'Votre message';
+
+    if (!name.value.trim()) {
+        name.classList.add('border-red-500');
+        name.placeholder = 'Veuillez remplir ce champ';
+        valid = false;
+    }
+    if (!email.value.trim()) {
+        email.classList.add('border-red-500');
+        email.placeholder = 'Veuillez remplir ce champ';
+        valid = false;
+    }
+    if (!message.value.trim()) {
+        message.classList.add('border-red-500');
+        message.placeholder = 'Veuillez remplir ce champ';
+        valid = false;
+    }
+    return valid;
+}
+  </script>
+
 </body>
 
 </html>
